@@ -12,7 +12,22 @@
 	}
 
 	EventBus.prototype.$on = function (event,fn,ctx) {
-		(this._events[event] || (this._events[event] = [])).push([fn,ctx]);
+		if(!this._events[event]) {
+			this._events[event] = [];
+			return this;
+		}
+
+		let isPush = true;
+		const len = this._events[event] ? this._events[event].length : 0;
+	    for (let i = 0, l = len; i < l; i++) {
+			if(this._events[event][i][0] === fn){
+				isPush = false;
+				break;
+			}
+      	}
+
+      	if(isPush) this._events[event].push([fn,ctx]);
+      	
 		return this;
 	}
 
