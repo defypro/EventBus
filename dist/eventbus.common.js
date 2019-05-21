@@ -12,7 +12,6 @@ function EventBus() {
 EventBus.prototype.$on = function (event, fn, ctx) {
   if (!this._events[event]) {
     this._events[event] = [];
-    return this;
   }
 
   var isPush = true;
@@ -32,6 +31,7 @@ EventBus.prototype.$on = function (event, fn, ctx) {
 EventBus.prototype.$off = function (event) {
   if (!event) {
     this._events = {};
+    return this;
   }
 
   if (!this._events.hasOwnProperty(event)) return this;
