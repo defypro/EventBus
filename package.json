@@ -1,0 +1,32 @@
+{
+  "name": "@defy/event-bus",
+  "version": "0.0.1",
+  "description": "JS事件总线",
+  "main": "dist/eventbus.common.js",
+  "module": "dist/eventbus.esm.js",
+  "scripts": {
+    "build": "rimraf dist && rollup -c && uglifyjs dist/eventbus.js -c -m --comments -o dist/eventbus.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/defypro/event-bus.git"
+  },
+  "keywords": [
+    "javascript",
+    "eventbus"
+  ],
+  "author": "defy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/defypro/event-bus/issues"
+  },
+  "homepage": "https://github.com/defypro/event-bus#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.12.3",
+    "rollup-plugin-babel": "^4.3.2"
+  }
+}
